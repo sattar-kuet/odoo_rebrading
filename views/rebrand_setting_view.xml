@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.courier</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="90"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Odoo Rebranding" id="odoo_rebranding" string="Odoo Rebranding" data-key="odoo_rebranding" >
+                        <h2>Brand Settingts</h2>
+                        <div class="row mt16 o_settings_container" id="odoo_rebranding">
+                            <div class="col-12 col-lg-12 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Color</span>
+                                    <div class="text-muted content-group">
+                                        <field name="custom_brand_color" class="text-center oe_inline" widget="color" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+        <record id="action_general_setting" model="ir.actions.act_window">
+            <field name="name">Brand Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'odoo_rebranding', 'bin_size': False}</field>
+        </record>
+    </data>
+</odoo>
